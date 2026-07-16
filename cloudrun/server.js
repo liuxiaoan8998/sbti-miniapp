@@ -1,15 +1,25 @@
 const express = require('express')
-const cloudbase = require('@cloudbase/node-sdk')
+const cloudbase = require('@cloudbase/js-sdk')
 
 const app = express()
 const port = Number(process.env.PORT || 80)
 const collectionName = process.env.COLLECTION_NAME || 'test_results'
 const allowedCollections = new Set(['test_results', 'test_results_dev'])
 
-const tcbApp = cloudbase.init({
-  env: process.env.TCB_ENV_ID || process.env.CBR_ENV_ID || process.env.TCB_ENV || process.env.CLOUDBASE_ENV_ID,
-})
-const db = tcbApp.database()
+let db
+
+function getDatabase() {
+  if (!db) {
+    const appConfig = {}
+    if (process.env.TCB_REGION) {
+      appConfig.region = process.env.TCB_REGION
+    }
+
+    db = cloudbase.init(appConfig).database()
+  }
+
+  return db
+}
 
 app.use(express.json({ limit: '1mb' }))
 
@@ -58,6 +68,7 @@ app.post('/api/test-results', async (req, res) => {
       return send(res, 400, { success: false, error: '缺少 result 参数' })
     }
 
+    const db = getDatabase()
     const record = {
       _openid: openID,
       code: result.bestMatch.code,
@@ -86,6 +97,7 @@ app.get('/api/test-results', async (req, res) => {
       return send(res, 401, { success: false, error: '未获取到 openID' })
     }
 
+    const db = getDatabase()
     const limit = Math.min(Number(req.query.limit || 50), 100)
     const queryRes = await db
       .collection(collectionName)
@@ -110,6 +122,7 @@ app.delete('/api/test-results', async (req, res) => {
       return send(res, 401, { success: false, error: '未获取到 openID' })
     }
 
+    const db = getDatabase()
     const queryRes = await db
       .collection(collectionName)
       .where({ _openid: openID })

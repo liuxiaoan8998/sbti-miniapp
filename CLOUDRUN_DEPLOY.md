@@ -29,10 +29,10 @@
 ```text
 NODE_ENV=production
 COLLECTION_NAME=test_results
-TCB_ENV_ID=minicode01-d2gjnyjsq5a9775f7
+TCB_REGION=ap-shanghai
 ```
 
-NoSQL 文档数据库没有传统连接字符串。云托管后端通过 `@cloudbase/node-sdk` 使用 `TCB_ENV_ID` 初始化后，会直接访问该 CloudBase 环境下的数据库实例。
+NoSQL 文档数据库没有传统连接字符串。云托管后端通过 `@cloudbase/js-sdk` 使用云托管运行时鉴权信息访问当前 CloudBase 环境下的数据库实例，无需配置数据库用户名、密码或连接串，也不要把 `TCB_ENV_ID` 传给 SDK 初始化。
 
 当前正式数据库信息：
 

@@ -8,8 +8,10 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@cloudbase/node-sdk": "^3.0.0",
-    "express": "^4.18.3"
+    "@cloudbase/js-sdk": "^3.6.2",
+    "@cloudbase/signature-nodejs": "^1.0.0-beta.0",
+    "express": "^4.18.3",
+    "ws": "^8.18.0"
   },
   "engines": {
     "node": ">=18"

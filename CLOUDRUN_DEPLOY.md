@@ -3,7 +3,7 @@
 ## 架构
 
 - 小程序前端仍通过微信开发者工具上传、审核、发布。
-- 云托管只部署正式后端接口，替代正式版里的云函数调用。
+- 云托管部署正式后端接口，处理登录、测试结果保存、测试历史读取。
 - 开发构建继续走云函数和 `test_results_dev`。
 - 生产构建走云托管和 `test_results`。
 
@@ -29,10 +29,13 @@
 ```text
 NODE_ENV=production
 COLLECTION_NAME=test_results
-TCB_REGION=ap-shanghai
+# 可选，仅排查时临时开启
+ENABLE_DEBUG_CONFIG=true
 ```
 
-NoSQL 文档数据库没有传统连接字符串。云托管后端通过 `@cloudbase/js-sdk` 使用云托管运行时鉴权信息访问当前 CloudBase 环境下的数据库实例，无需配置数据库用户名、密码或连接串，也不要把 `TCB_ENV_ID` 传给 SDK 初始化。
+NoSQL 文档数据库没有传统连接字符串。云托管后端通过 `@cloudbase/js-sdk` 访问 CloudBase 数据库，SDK 初始化使用 `cloudbase.init()`，不要显式传 `env`。云托管运行时会从注入环境里识别当前 CloudBase 环境，因此不需要配置腾讯云 SecretId/SecretKey。
+
+排查时可临时配置 `ENABLE_DEBUG_CONFIG=true`，部署后访问 `/debug/config` 检查 `TCB_ENV_ID` 等运行时信息是否存在。验证完建议删除该环境变量或改回 `false`。
 
 当前正式数据库信息：
 

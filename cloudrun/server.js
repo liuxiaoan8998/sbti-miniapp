@@ -5,21 +5,7 @@ const app = express()
 const port = Number(process.env.PORT || 80)
 const collectionName = process.env.COLLECTION_NAME || 'test_results'
 const allowedCollections = new Set(['test_results', 'test_results_dev'])
-
 let db
-
-function getDatabase() {
-  if (!db) {
-    const appConfig = {}
-    if (process.env.TCB_REGION) {
-      appConfig.region = process.env.TCB_REGION
-    }
-
-    db = cloudbase.init(appConfig).database()
-  }
-
-  return db
-}
 
 app.use(express.json({ limit: '1mb' }))
 
@@ -37,8 +23,30 @@ function assertCollection() {
   }
 }
 
+function getDatabase() {
+  if (!db) {
+    db = cloudbase.init().database()
+  }
+
+  return db
+}
+
 app.get('/healthz', (_req, res) => {
   send(res, 200, { ok: true, service: process.env.K_SERVICE || 'stbi-prod' })
+})
+
+app.get('/debug/config', (_req, res) => {
+  if (process.env.ENABLE_DEBUG_CONFIG !== 'true') {
+    return send(res, 404, { success: false, error: 'Not Found' })
+  }
+
+  send(res, 200, {
+    ok: true,
+    collection: collectionName,
+    hasTcbEnvId: Boolean(process.env.TCB_ENV_ID),
+    hasTcbContext: Boolean(process.env.TCB_CONTEXT_CNFG),
+    hasCloudbaseContext: Boolean(process.env.CLOUDBASE_CONTEXT),
+  })
 })
 
 app.get('/api/login', (req, res) => {
@@ -81,6 +89,11 @@ app.post('/api/test-results', async (req, res) => {
     }
 
     const addRes = await db.collection(collectionName).add(record)
+    console.log('save test result succeeded:', {
+      collection: collectionName,
+      openID,
+      id: addRes.id || addRes._id,
+    })
     return send(res, 200, { success: true, _id: addRes.id || addRes._id })
   } catch (err) {
     console.error('save test result failed:', err)

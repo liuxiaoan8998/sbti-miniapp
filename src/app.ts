@@ -20,6 +20,15 @@ function App({ children }: PropsWithChildren<any>) {
     })
     console.log('Cloud initialized, env:', process.env.TARO_APP_CLOUD_ENV_ID)
 
+    // 隐私授权被动监听（安全兆底）
+    // 注册后如果未响应 resolve，微信会自动弹出官方默认授权弹窗
+    if (typeof Taro.onNeedPrivacyAuthorization === 'function') {
+      Taro.onNeedPrivacyAuthorization((_resolve: Function, eventInfo: { referrer: string }) => {
+        console.log('[privacy] Need authorization for:', eventInfo.referrer)
+        // 不调用 resolve，让微信官方隐私弹窗自动弹出处理
+      })
+    }
+
     // 静默登录，获取 openID
     const loginRes = await login()
     if (loginRes.success) {

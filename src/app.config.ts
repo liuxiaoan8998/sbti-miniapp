@@ -5,6 +5,7 @@ export default defineAppConfig({
     'pages/result/index',
     'pages/ranking/index',
     'pages/profile/index',
+    'pages/privacy/index',
   ],
   window: {
     backgroundTextStyle: 'light',

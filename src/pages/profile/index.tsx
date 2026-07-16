@@ -81,11 +81,9 @@ export default function ProfilePage() {
               onClick={() => handleViewDetail(item)}
             >
               <View className='profile-page__item-left'>
-                <View className='profile-page__item-badge'>
-                  <Text className='profile-page__item-code'>{item.code}</Text>
-                </View>
                 <View className='profile-page__item-info'>
                   <Text className='profile-page__item-name'>{item.name}</Text>
+                  <Text className='profile-page__item-code'>{item.code}</Text>
                   <Text className='profile-page__item-time'>{formatTime(item.createdAt)}</Text>
                 </View>
               </View>
@@ -117,6 +115,16 @@ export default function ProfilePage() {
           </View>
         </View>
       )}
+
+      {/* 隐私政策入口 */}
+      <View className='profile-page__privacy'>
+        <Text
+          className='profile-page__privacy-link'
+          onClick={() => Taro.navigateTo({ url: '/pages/privacy/index' })}
+        >
+          隐私政策
+        </Text>
+      </View>
     </View>
   )
 }

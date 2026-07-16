@@ -1,0 +1,62 @@
+$primary: #6C63FF;
+$text-primary: #1A1A2E;
+$text-secondary: #666680;
+$text-muted: #999AAA;
+$border: #E8E8F0;
+
+.privacy-page {
+  min-height: 100vh;
+  padding: 40px 32px;
+  padding-bottom: 80px;
+  background: #F8F8FC;
+
+  &__title {
+    display: block;
+    font-size: 44px;
+    font-weight: 800;
+    color: $text-primary;
+    margin-bottom: 8px;
+  }
+
+  &__date {
+    display: block;
+    font-size: 24px;
+    color: $text-muted;
+    margin-bottom: 48px;
+  }
+
+  &__section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(108, 99, 255, 0.04);
+  }
+
+  &__subtitle {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 12px;
+  }
+
+  &__text {
+    display: block;
+    font-size: 26px;
+    color: $text-secondary;
+    line-height: 1.8;
+  }
+
+  &__footer {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  &__contact {
+    display: block;
+    font-size: 24px;
+    color: $text-muted;
+    text-align: center;
+  }
+}

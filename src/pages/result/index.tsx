@@ -55,10 +55,10 @@ export default function ResultPage() {
     <View className='result-page'>
       {/* 主结果卡片 */}
       <View className='result-page__main-card'>
+        <Text className='result-page__name'>{bestMatch.name}</Text>
         <View className='result-page__code-badge'>
           <Text className='result-page__code-text'>{bestMatch.code}</Text>
         </View>
-        <Text className='result-page__name'>{bestMatch.name}</Text>
         <Text className='result-page__intro'>{bestMatch.intro}</Text>
 
         <View className='result-page__match-ring'>
@@ -92,8 +92,8 @@ export default function ResultPage() {
                 </Text>
               </View>
               <View className='result-page__top-info'>
-                <Text className='result-page__top-code'>{item.code}</Text>
                 <Text className='result-page__top-name'>{item.name}</Text>
+                <Text className='result-page__top-code'>{item.code}</Text>
               </View>
               <View className='result-page__top-bar-wrap'>
                 <View className='result-page__top-bar'>

@@ -37,23 +37,23 @@ $warning: #FF9800;
 
   &__code-badge {
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 40px;
-    padding: 12px 36px;
-    margin-bottom: 16px;
+    border-radius: 20px;
+    padding: 6px 20px;
+    margin-bottom: 12px;
   }
 
   &__code-text {
-    font-size: 36px;
-    font-weight: 900;
-    color: #fff;
-    letter-spacing: 4px;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 3px;
   }
 
   &__name {
-    font-size: 48px;
-    font-weight: 800;
+    font-size: 52px;
+    font-weight: 900;
     color: #fff;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   &__intro {
@@ -161,15 +161,18 @@ $warning: #FF9800;
   }
 
   &__top-code {
-    font-size: 26px;
-    font-weight: 700;
-    color: $primary;
+    font-size: 20px;
+    font-weight: 600;
+    color: $text-muted;
     display: block;
+    letter-spacing: 1px;
   }
 
   &__top-name {
-    font-size: 24px;
-    color: $text-muted;
+    font-size: 28px;
+    font-weight: 700;
+    color: $text-primary;
+    display: block;
   }
 
   &__top-bar-wrap {

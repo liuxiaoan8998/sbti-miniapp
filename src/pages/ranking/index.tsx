@@ -39,8 +39,8 @@ export default function RankingPage() {
               </View>
               <View className='ranking-page__card-main'>
                 <View className='ranking-page__card-row'>
-                  <Text className='ranking-page__card-code'>{type.code}</Text>
                   <Text className='ranking-page__card-name'>{type.name}</Text>
+                  <Text className='ranking-page__card-code'>{type.code}</Text>
                 </View>
                 <Text className='ranking-page__card-intro'>{type.intro}</Text>
               </View>
@@ -78,8 +78,8 @@ export default function RankingPage() {
               </View>
               <View className='ranking-page__card-main'>
                 <View className='ranking-page__card-row'>
-                  <Text className='ranking-page__card-code'>{type.code}</Text>
                   <Text className='ranking-page__card-name'>{type.name}</Text>
+                  <Text className='ranking-page__card-code'>{type.code}</Text>
                   <View className='ranking-page__special-badge'>
                     <Text>{type.isFallback ? '兜底' : '隐藏'}</Text>
                   </View>

@@ -29,10 +29,20 @@
 ```text
 NODE_ENV=production
 COLLECTION_NAME=test_results
-TCB_ENV_ID=<你的云托管正式环境ID>
+TCB_ENV_ID=minicode01-d2gjnyjsq5a9775f7
 ```
 
-如果控制台已经自动注入了环境 ID，`TCB_ENV_ID` 也可以不填；但显式配置更清楚。
+NoSQL 文档数据库没有传统连接字符串。云托管后端通过 `@cloudbase/node-sdk` 使用 `TCB_ENV_ID` 初始化后，会直接访问该 CloudBase 环境下的数据库实例。
+
+当前正式数据库信息：
+
+```text
+环境 ID：minicode01-d2gjnyjsq5a9775f7
+数据库实例 ID：tnt-36se41mwq
+地域：ap-shanghai
+正式集合：test_results
+开发集合：test_results_dev
+```
 
 ## 小程序生产环境变量
 
@@ -40,7 +50,6 @@ TCB_ENV_ID=<你的云托管正式环境ID>
 
 ```text
 TARO_APP_BACKEND_MODE=cloudrun
-TARO_APP_CLOUD_RUN_ENV_ID=<你的云托管正式环境ID>
 TARO_APP_CLOUD_RUN_SERVICE=<你的云托管服务名>
 TARO_APP_TEST_RESULTS_COLLECTION=test_results
 ```
@@ -66,7 +75,7 @@ test_results_dev
 ## 发布前检查
 
 1. 云托管服务部署成功，访问 `/healthz` 返回 `ok: true`。
-2. `.env.production` 已填云托管环境 ID 和服务名。
+2. `.env.production` 已填云托管服务名。
 3. 执行 `npm run build:weapp`。
 4. 用微信开发者工具上传体验版。
 5. 真机完成一次测试，确认数据进入正式环境的 `test_results`。

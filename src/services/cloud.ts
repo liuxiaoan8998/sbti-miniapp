@@ -5,7 +5,6 @@ import { SBTIResult } from '../utils/sbtiScoring'
 const OPENID_KEY = 'user_openid'
 const TEST_RESULTS_COLLECTION = process.env.TARO_APP_TEST_RESULTS_COLLECTION || 'test_results'
 const BACKEND_MODE = process.env.TARO_APP_BACKEND_MODE || 'cloudfunction'
-const CLOUD_RUN_ENV_ID = process.env.TARO_APP_CLOUD_RUN_ENV_ID
 const CLOUD_RUN_SERVICE = process.env.TARO_APP_CLOUD_RUN_SERVICE
 
 // ─── 登录信息 ────────────────────────────────────────────────
@@ -34,20 +33,17 @@ async function callCloudRun<T = any>(
   method: 'GET' | 'POST' | 'DELETE',
   data?: Record<string, any>,
 ): Promise<CloudRunResponse<T>> {
-  if (!CLOUD_RUN_ENV_ID || !CLOUD_RUN_SERVICE) {
-    return { success: false, error: '云托管环境或服务名未配置' }
+  if (!CLOUD_RUN_SERVICE) {
+    return { success: false, error: '云托管服务名未配置' }
   }
 
   const res = await Taro.cloud.callContainer({
-    config: {
-      env: CLOUD_RUN_ENV_ID,
-    },
-    name: CLOUD_RUN_SERVICE,
     path,
     method,
     data,
     header: {
       'content-type': 'application/json',
+      'X-WX-SERVICE': CLOUD_RUN_SERVICE,
     },
   } as any)
 

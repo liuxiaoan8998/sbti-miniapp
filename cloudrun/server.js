@@ -4,10 +4,10 @@ const cloudbase = require('@cloudbase/node-sdk')
 const app = express()
 const port = Number(process.env.PORT || 80)
 const collectionName = process.env.COLLECTION_NAME || 'test_results'
-const allowedCollections = new Set(['test_results'])
+const allowedCollections = new Set(['test_results', 'test_results_dev'])
 
 const tcbApp = cloudbase.init({
-  env: process.env.TCB_ENV_ID || process.env.TCB_ENV || process.env.CLOUDBASE_ENV_ID,
+  env: process.env.TCB_ENV_ID || process.env.CBR_ENV_ID || process.env.TCB_ENV || process.env.CLOUDBASE_ENV_ID,
 })
 const db = tcbApp.database()
 

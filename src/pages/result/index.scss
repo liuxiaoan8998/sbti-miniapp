@@ -1,0 +1,322 @@
+$primary: #6C63FF;
+$primary-light: #8B83FF;
+$text-primary: #1A1A2E;
+$text-secondary: #666680;
+$text-muted: #999AAA;
+$border: #E8E8F0;
+$success: #4CAF50;
+$warning: #FF9800;
+
+.result-page {
+  min-height: 100vh;
+  padding: 32px;
+  padding-bottom: 80px;
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    font-size: 30px;
+    color: $text-muted;
+  }
+
+  // 主结果卡片
+  &__main-card {
+    background: linear-gradient(135deg, $primary 0%, $primary-light 50%, #A78BFA 100%);
+    border-radius: 32px;
+    padding: 48px 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    box-shadow: 0 12px 40px rgba(108, 99, 255, 0.3);
+  }
+
+  &__code-badge {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    padding: 12px 36px;
+    margin-bottom: 16px;
+  }
+
+  &__code-text {
+    font-size: 36px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 4px;
+  }
+
+  &__name {
+    font-size: 48px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  &__intro {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 32px;
+  }
+
+  &__match-ring {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &__match-num {
+    font-size: 56px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+  }
+
+  &__match-unit {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 4px;
+  }
+
+  &__match-label {
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 4px;
+  }
+
+  &__special-tag {
+    background: rgba(255, 152, 0, 0.3);
+    border-radius: 24px;
+    padding: 8px 24px;
+    margin-top: 24px;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  // 通用卡片
+  &__card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(108, 99, 255, 0.06);
+  }
+
+  &__card-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: $text-primary;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    font-size: 28px;
+    color: $text-secondary;
+    line-height: 1.8;
+  }
+
+  // TOP 5
+  &__top-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__top-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__top-rank {
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__top-rank-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: $text-muted;
+
+    &--1 { color: #FFD700; }
+    &--2 { color: #C0C0C0; }
+    &--3 { color: #CD7F32; }
+  }
+
+  &__top-info {
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  &__top-code {
+    font-size: 26px;
+    font-weight: 700;
+    color: $primary;
+    display: block;
+  }
+
+  &__top-name {
+    font-size: 24px;
+    color: $text-muted;
+  }
+
+  &__top-bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__top-bar {
+    flex: 1;
+    height: 12px;
+    background: $border;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__top-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, $primary, $primary-light);
+    border-radius: 6px;
+  }
+
+  &__top-percent {
+    font-size: 24px;
+    color: $text-muted;
+    min-width: 70px;
+    text-align: right;
+  }
+
+  // 15维度
+  &__dim-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__dim-toggle {
+    font-size: 26px;
+    color: $primary;
+    font-weight: 500;
+  }
+
+  &__pattern {
+    background: rgba(108, 99, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__pattern-label {
+    font-size: 26px;
+    color: $text-muted;
+  }
+
+  &__pattern-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: $primary;
+    letter-spacing: 1px;
+  }
+
+  &__dim-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__dim-item {
+    border-bottom: 1px solid $border;
+    padding-bottom: 20px;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__dim-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &__dim-name {
+    font-size: 28px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__dim-level {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 12px;
+
+    &--H {
+      background: rgba(76, 175, 80, 0.1);
+      color: $success;
+    }
+
+    &--M {
+      background: rgba(255, 152, 0, 0.1);
+      color: $warning;
+    }
+
+    &--L {
+      background: rgba(108, 99, 255, 0.1);
+      color: $primary;
+    }
+  }
+
+  &__dim-explain {
+    font-size: 26px;
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+
+  // 操作按钮
+  &__actions {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 40px;
+  }
+
+  &__action-btn {
+    width: 100%;
+  }
+
+  // 重置微信原生 Button 样式
+  &__share-btn {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 32px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+
+    &::after {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,141 @@
+$primary: #6C63FF;
+$primary-light: #8B83FF;
+$text-primary: #1A1A2E;
+$text-secondary: #666680;
+$text-muted: #999AAA;
+$border: #E8E8F0;
+
+.test-page {
+  min-height: 100vh;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+
+  &__progress {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    padding-top: 16px;
+  }
+
+  &__progress-bar {
+    flex: 1;
+    height: 12px;
+    background: $border;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, $primary, $primary-light);
+    border-radius: 6px;
+    transition: width 0.3s ease;
+  }
+
+  &__progress-text {
+    font-size: 26px;
+    color: $text-muted;
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: right;
+  }
+
+  &__question-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 24px rgba(108, 99, 255, 0.08);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__question-text {
+    font-size: 32px;
+    font-weight: 600;
+    color: $text-primary;
+    line-height: 1.7;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+
+  &__option {
+    background: #fff;
+    border: 2px solid $border;
+    border-radius: 20px;
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    min-height: 88px;
+
+    &--selected {
+      border-color: $primary;
+      background: rgba(108, 99, 255, 0.05);
+      box-shadow: 0 4px 16px rgba(108, 99, 255, 0.12);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &__option-text {
+    flex: 1;
+    font-size: 28px;
+    color: $text-primary;
+    line-height: 1.5;
+    margin-right: 16px;
+  }
+
+  &__option-radio {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid $border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+
+    &--active {
+      border-color: $primary;
+      background: rgba(108, 99, 255, 0.1);
+    }
+  }
+
+  &__option-radio-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $primary;
+  }
+
+  &__nav {
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__nav-placeholder {
+    flex: 1;
+  }
+
+  &__nav-btn {
+    flex: 1;
+    height: 80px;
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,174 @@
+$primary: #6C63FF;
+$primary-light: #8B83FF;
+$text-primary: #1A1A2E;
+$text-secondary: #666680;
+$text-muted: #999AAA;
+$border: #E8E8F0;
+$warning: #FF9800;
+
+.ranking-page {
+  min-height: 100vh;
+  padding: 32px;
+  padding-bottom: 120px;
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 800;
+    color: $text-primary;
+  }
+
+  &__count {
+    font-size: 26px;
+    color: $text-muted;
+  }
+
+  &__section {
+    margin-bottom: 32px;
+  }
+
+  &__section-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: $text-primary;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  // 卡片
+  &__card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(108, 99, 255, 0.05);
+    transition: all 0.2s ease;
+
+    &--expanded {
+      box-shadow: 0 8px 32px rgba(108, 99, 255, 0.12);
+    }
+
+    &--special {
+      border: 1px dashed $warning;
+      background: rgba(255, 152, 0, 0.02);
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &__card-index {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(108, 99, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: $primary;
+    flex-shrink: 0;
+
+    &--special {
+      background: rgba(255, 152, 0, 0.1);
+      color: $warning;
+    }
+  }
+
+  &__card-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__card-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+
+  &__card-code {
+    font-size: 28px;
+    font-weight: 800;
+    color: $primary;
+    letter-spacing: 1px;
+  }
+
+  &__card-name {
+    font-size: 28px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__card-intro {
+    font-size: 24px;
+    color: $text-muted;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+  }
+
+  &__card-arrow {
+    font-size: 24px;
+    color: $primary;
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
+  &__special-badge {
+    background: rgba(255, 152, 0, 0.15);
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 20px;
+    color: $warning;
+    font-weight: 600;
+  }
+
+  // 展开内容
+  &__card-body {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid $border;
+  }
+
+  &__card-desc {
+    font-size: 26px;
+    color: $text-secondary;
+    line-height: 1.8;
+    display: block;
+  }
+
+  &__card-pattern {
+    margin-top: 16px;
+    background: rgba(108, 99, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__card-pattern-label {
+    font-size: 24px;
+    color: $text-muted;
+  }
+
+  &__card-pattern-value {
+    font-size: 22px;
+    font-weight: 600;
+    color: $primary;
+    letter-spacing: 1px;
+  }
+}

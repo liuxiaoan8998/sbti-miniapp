@@ -1,0 +1,100 @@
+// ─── 全局样式变量 ─────────────────────────────────────────
+$primary: #6C63FF;
+$primary-light: #8B83FF;
+$primary-dark: #5A52D5;
+$bg: #F5F5FA;
+$card-bg: #FFFFFF;
+$text-primary: #1A1A2E;
+$text-secondary: #666680;
+$text-muted: #999AAA;
+$border: #E8E8F0;
+$success: #4CAF50;
+$warning: #FF9800;
+$danger: #F44336;
+
+// ─── 通用重置 ─────────────────────────────────────────────
+page {
+  background-color: $bg;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  color: $text-primary;
+  font-size: 28px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+view, text {
+  box-sizing: border-box;
+}
+
+// ─── 通用工具类 ───────────────────────────────────────────
+.container {
+  padding: 40px 32px;
+  min-height: 100vh;
+}
+
+.card {
+  background: $card-bg;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(108, 99, 255, 0.06);
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  border-radius: 44px;
+  font-size: 32px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s;
+
+  &::after {
+    border: none;
+  }
+
+  &-primary {
+    background: linear-gradient(135deg, $primary, $primary-light);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(108, 99, 255, 0.3);
+
+    &:active {
+      transform: scale(0.97);
+      box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+    }
+  }
+
+  &-outline {
+    background: transparent;
+    color: $primary;
+    border: 2px solid $primary;
+
+    &:active {
+      background: rgba(108, 99, 255, 0.05);
+    }
+  }
+
+  &-ghost {
+    background: rgba(108, 99, 255, 0.08);
+    color: $primary;
+
+    &:active {
+      background: rgba(108, 99, 255, 0.15);
+    }
+  }
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 26px;
+  color: $text-secondary;
+  margin-bottom: 16px;
+}

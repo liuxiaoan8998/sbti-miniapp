@@ -1,0 +1,17 @@
+{
+  "name": "sbti-cloudrun",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SBTI mini program production backend for CloudBase Run",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@cloudbase/node-sdk": "^3.0.0",
+    "express": "^4.18.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

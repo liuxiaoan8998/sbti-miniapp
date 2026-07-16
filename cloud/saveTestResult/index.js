@@ -6,14 +6,19 @@ cloud.init({
 })
 
 const db = cloud.database()
+const ALLOWED_COLLECTIONS = new Set(['test_results', 'test_results_dev'])
 
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const { result } = event
+  const { result, collectionName = 'test_results' } = event
 
   if (!result) {
     return { success: false, error: '缺少 result 参数' }
+  }
+
+  if (!ALLOWED_COLLECTIONS.has(collectionName)) {
+    return { success: false, error: '非法集合名' }
   }
 
   try {
@@ -28,7 +33,7 @@ exports.main = async (event, context) => {
       createdAt: db.serverDate(),
     }
 
-    const res = await db.collection('test_results').add({
+    const res = await db.collection(collectionName).add({
       data: record,
     })
 

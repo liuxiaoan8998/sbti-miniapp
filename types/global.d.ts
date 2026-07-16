@@ -25,6 +25,13 @@ declare namespace NodeJS {
     TARO_APP_ID: string
     /** 微信云开发环境 ID */
     TARO_APP_CLOUD_ENV_ID: string
+    /** 测试结果集合名 */
+    TARO_APP_TEST_RESULTS_COLLECTION: string
+    /** 后端模式：开发走云函数，正式走云托管 */
+    TARO_APP_BACKEND_MODE: 'cloudfunction' | 'cloudrun'
+    /** 微信云托管环境 ID */
+    TARO_APP_CLOUD_RUN_ENV_ID: string
+    /** 微信云托管服务名 */
+    TARO_APP_CLOUD_RUN_SERVICE: string
   }
 }
-
